@@ -14,16 +14,16 @@ import light.sundq.web.websocket.WSResponse;
 public class WSController {
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	@MessageMapping("/send")
-	@SendTo("/topic/subscribeTest")
-	public WSResponse send(WSRequest req) {
-		logger.info("接收到了信息" + req.getName());
-		return new WSResponse("你发送的消息为:" + req.getName());
-	}
+	@MessageMapping("/sendTest")
+    @SendTo("/topic/subscribeTest")
+    public WSResponse sendDemo(WSRequest message) {
+        logger.info("接收到了信息" + message.getName());
+        return new WSResponse("你发送的消息为:" + message.getName());
+    }
 
-	@SubscribeMapping("/subscribeTest")
-	public WSResponse sub() {
-		logger.info("XXX用户订阅了我。。。");
-		return new WSResponse("感谢你订阅了我。。。");
-	}
+    @SubscribeMapping("/subscribeTest")
+    public WSResponse sub() {
+        logger.info("XXX用户订阅了我。。。");
+        return new WSResponse("感谢你订阅了我。。。");
+    }
 }

@@ -13,14 +13,14 @@ public class WebsocketStompConfig extends AbstractWebSocketMessageBrokerConfigur
 	@Override
 	public void registerStompEndpoints(StompEndpointRegistry registry) {
 		// TODO Auto-generated method stub
-		registry.addEndpoint("/wsServer").setAllowedOrigins("*").withSockJS();
+		registry.addEndpoint("/webSocketServer").setAllowedOrigins("*").withSockJS();
 	}
 
 	@Override
 	public void configureMessageBroker(MessageBrokerRegistry registry) {
 		// TODO Auto-generated method stub
 		registry.enableSimpleBroker("/queue", "/topic");
-		registry.setApplicationDestinationPrefixes("ws");
+		registry.setApplicationDestinationPrefixes("app");
 	}
 
 	
